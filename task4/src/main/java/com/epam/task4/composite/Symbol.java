@@ -15,13 +15,13 @@ public class Symbol implements TextComponent {
 
     @Override
     public boolean add(TextComponent component) {
-        LOGGER.warn("Add operation is not supported for Symbol");
+        LOGGER.error("Add operation is not supported for Symbol");
         throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean remove(TextComponent component) {
-        LOGGER.warn("Remove operation is not supported for Symbol");
+        LOGGER.error("Remove operation is not supported for Symbol");
         throw new UnsupportedOperationException();
     }
 
