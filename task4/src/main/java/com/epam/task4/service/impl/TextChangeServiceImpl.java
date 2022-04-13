@@ -37,7 +37,6 @@ public class TextChangeServiceImpl implements TextChangeService {
                 }
             }
         }
-        text.setComponents(paragraphs);
         LOGGER.info("Paragraphs sorted. Text: '" + text.getAsString() + "'");
     }
 
@@ -63,7 +62,6 @@ public class TextChangeServiceImpl implements TextChangeService {
                 }
             }
         }
-        text.setComponents(paragraphs);
     }
 
     private int countNumberOfWordsInSentence(TextComponent sentence) {

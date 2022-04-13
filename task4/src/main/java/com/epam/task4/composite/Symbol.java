@@ -33,12 +33,6 @@ public class Symbol implements TextComponent {
         throw new UnsupportedOperationException("GetComponents operation is not supported for Symbol");
     }
 
-    @Override
-    public void setComponents(List<TextComponent> components) {
-        LOGGER.error("SetComponents operation is not supported for Symbol");
-        throw new UnsupportedOperationException("SetComponents operation is not supported for Symbol");
-    }
-
     public char getValue(){
         return value;
     }

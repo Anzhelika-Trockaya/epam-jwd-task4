@@ -30,11 +30,6 @@ public class TextComposite implements TextComponent {
     @Override
     public List<TextComponent> getChildren() {
         return components;
-    }//fixme clone
-
-    @Override
-    public void setComponents(List<TextComponent> components) {
-        this.components = components;
     }
 
     @Override

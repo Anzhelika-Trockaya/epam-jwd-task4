@@ -11,8 +11,6 @@ public interface TextComponent {
 
     List<TextComponent> getChildren();
 
-    void setComponents(List<TextComponent> components);
-
     String getAsString();
 
     ComponentType getComponentType();
