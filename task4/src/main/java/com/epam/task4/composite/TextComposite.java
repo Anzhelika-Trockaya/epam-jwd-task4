@@ -32,27 +32,9 @@ public class TextComposite implements TextComponent {
         return components;
     }//fixme clone
 
-  /*  @Override
+    @Override
     public void setComponents(List<TextComponent> components) {
         this.components = components;
-    }*///fixme delete
-
-    @Override
-    public TextComponent getChild(int index) throws TextParseException {
-        if (components.size() <= index || index < 0) {
-            LOGGER.error("Child with index=" + index + " does not exist.");
-            throw new TextParseException("Child with index=" + index + " does not exist.");
-        }
-        return components.get(index);
-    }
-
-    @Override
-    public void setChild(int index, TextComponent component) throws TextParseException {
-        if (components.size() <= index || index < 0) {
-            LOGGER.error("Child with index=" + index + " does not exist.");
-            throw new TextParseException("Child with index=" + index + " does not exist.");
-        }
-        if()
     }
 
     @Override

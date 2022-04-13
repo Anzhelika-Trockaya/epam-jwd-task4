@@ -63,7 +63,7 @@ public class TextChangeServiceImpl implements TextChangeService {
                 }
             }
         }
-        text.setComponents(paragraphs);//fixme!!!!!!!!!!!!!!!!!!!!!
+        text.setComponents(paragraphs);
     }
 
     private int countNumberOfWordsInSentence(TextComponent sentence) {
