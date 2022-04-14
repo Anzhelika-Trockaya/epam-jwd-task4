@@ -1,15 +1,217 @@
 package com.epam.task4.data;
 
-import com.epam.task4.composite.TextComponent;
+import com.epam.task4.composite.*;
 import org.testng.annotations.DataProvider;
 
+import static com.epam.task4.data.SymbolData.*;
+
 public class StaticParserDataProvider {
-    @DataProvider(name = "text-data")
-    public static Object[][] createCandiesData() {
-        Object[][] data = new Object[1][2];
-        //todo
+
+    @DataProvider(name = "words-data")
+    public static Object[][] createWordsData() {
+        Object[][] data = new Object[18][];
+        TextComponent word0 = new TextComposite(ComponentType.WORD);
+        word0.add(ENGLISH_BIG_LETTERS[4]);
+        word0.add(ENGLISH_SMALL_LETTERS[21]);
+        word0.add(ENGLISH_SMALL_LETTERS[4]);
+        word0.add(ENGLISH_SMALL_LETTERS[17]);
+        word0.add(ENGLISH_SMALL_LETTERS[24]);
+        data[0] = new Object[]{word0, "Every"};
+        TextComponent word1 = new TextComposite(ComponentType.WORD);
+        word1.add(ENGLISH_SMALL_LETTERS[3]);
+        word1.add(ENGLISH_SMALL_LETTERS[0]);
+        word1.add(ENGLISH_SMALL_LETTERS[24]);
+        word1.add(APOSTROPHE);
+        data[1] = new Object[]{word1, "day'"};
+        TextComponent word2 = new TextComposite(ComponentType.WORD);
+        word2.add(ENGLISH_SMALL_LETTERS[8]);
+        word2.add(ENGLISH_SMALL_LETTERS[13]);
+        data[2] = new Object[]{word2, "in"};
+        TextComponent word3 = new TextComposite(ComponentType.WORD);
+        word3.add(ENGLISH_SMALL_LETTERS[18]);
+        word3.add(ENGLISH_SMALL_LETTERS[2]);
+        word3.add(ENGLISH_SMALL_LETTERS[7]);
+        word3.add(ENGLISH_SMALL_LETTERS[14]);
+        word3.add(ENGLISH_SMALL_LETTERS[14]);
+        word3.add(ENGLISH_SMALL_LETTERS[11]);
+        data[3] = new Object[]{word3, "school"};
+        TextComponent word4 = new TextComposite(ComponentType.WORD);
+        word4.add(ENGLISH_BIG_LETTERS[1]);
+        word4.add(ENGLISH_SMALL_LETTERS[4]);
+        word4.add(ENGLISH_SMALL_LETTERS[6]);
+        word4.add(ENGLISH_SMALL_LETTERS[8]);
+        word4.add(ENGLISH_SMALL_LETTERS[13]);
+        word4.add(ENGLISH_SMALL_LETTERS[18]);
+        data[4] = new Object[]{word4, "Begins"};
+        TextComponent word5 = new TextComposite(ComponentType.WORD);
+        word5.add(ENGLISH_SMALL_LETTERS[0]);
+        word5.add(ENGLISH_SMALL_LETTERS[19]);
+        data[5] = new Object[]{word5, "at"};
+        TextComponent word6 = new TextComposite(ComponentType.WORD);
+        word6.add(ENGLISH_BIG_LETTERS[12]);
+        word6.add(ENGLISH_SMALL_LETTERS[0]);
+        word6.add(ENGLISH_SMALL_LETTERS[13]);
+        word6.add(ENGLISH_SMALL_LETTERS[24]);
+        data[6] = new Object[]{word6, "Many"};
+        TextComponent word7 = new TextComposite(ComponentType.WORD);
+        word7.add(ENGLISH_SMALL_LETTERS[1]);
+        word7.add(ENGLISH_SMALL_LETTERS[20]);
+        word7.add(ENGLISH_SMALL_LETTERS[19]);
+        data[7] = new Object[]{word7, "but"};
+        TextComponent word8 = new TextComposite(ComponentType.WORD);
+        word8.add(ENGLISH_SMALL_LETTERS[8]);
+        word8.add(ENGLISH_SMALL_LETTERS[18]);
+        word8.add(ENGLISH_SMALL_LETTERS[13]);
+        word8.add(APOSTROPHE);
+        word8.add(ENGLISH_SMALL_LETTERS[19]);
+        data[8] = new Object[]{word8, "isn't"};
+        TextComponent word9 = new TextComposite(ComponentType.WORD);
+        word9.add(ENGLISH_BIG_LETTERS[2]);
+        word9.add(ENGLISH_SMALL_LETTERS[14]);
+        word9.add(ENGLISH_SMALL_LETTERS[11]);
+        word9.add(ENGLISH_SMALL_LETTERS[3]);
+        data[9] = new Object[]{word9, "Cold"};
+        TextComponent word10 = new TextComposite(ComponentType.WORD);
+        word10.add(RUSSIAN_SMALL_LETTERS[4]);
+        word10.add(RUSSIAN_SMALL_LETTERS[15]);
+        word10.add(RUSSIAN_SMALL_LETTERS[7]);
+        word10.add(RUSSIAN_SMALL_LETTERS[4]);
+        word10.add(RUSSIAN_SMALL_LETTERS[27]);
+        data[10] = new Object[]{word10, "дождь"};
+        TextComponent word11 = new TextComposite(ComponentType.WORD);
+        word11.add(RUSSIAN_SMALL_LETTERS[9]);
+        word11.add(RUSSIAN_SMALL_LETTERS[4]);
+        word11.add(RUSSIAN_SMALL_LETTERS[6]);
+        word11.add(RUSSIAN_SMALL_LETTERS[19]);
+        data[11] = new Object[]{word11, "идёт"};
+        TextComponent word12 = new TextComposite(ComponentType.WORD);
+        word12.add(RUSSIAN_BIG_LETTERS[12]);
+        word12.add(RUSSIAN_SMALL_LETTERS[20]);
+        word12.add(RUSSIAN_SMALL_LETTERS[24]);
+        data[12] = new Object[]{word12, "Луч"};
+        TextComponent word13 = new TextComposite(ComponentType.WORD);
+        word13.add(RUSSIAN_SMALL_LETTERS[15]);
+        word13.add(RUSSIAN_SMALL_LETTERS[11]);
+        data[13] = new Object[]{word13, "ок"};
+        TextComponent word14 = new TextComposite(ComponentType.WORD);
+        word14.add(RUSSIAN_BIG_LETTERS[32]);
+        word14.add(RUSSIAN_SMALL_LETTERS[17]);
+        word14.add(UNDERSCORE);
+        word14.add(RUSSIAN_SMALL_LETTERS[11]);
+        word14.add(RUSSIAN_SMALL_LETTERS[15]);
+        data[14] = new Object[]{word14, "Яр_ко"};
+        TextComponent word15 = new TextComposite(ComponentType.WORD);
+        word15.add(RUSSIAN_SMALL_LETTERS[18]);
+        word15.add(RUSSIAN_SMALL_LETTERS[19]);
+        word15.add(RUSSIAN_SMALL_LETTERS[15]);
+        word15.add(RUSSIAN_SMALL_LETTERS[16]);
+        data[15] = new Object[]{word15, "стоп"};
+        TextComponent word16 = new TextComposite(ComponentType.WORD);
+        word16.add(ENGLISH_SMALL_LETTERS[12]);
+        word16.add(ENGLISH_SMALL_LETTERS[14]);
+        word16.add(ENGLISH_SMALL_LETTERS[17]);
+        word16.add(ENGLISH_SMALL_LETTERS[4]);
+        word16.add(HYPHEN);
+        word16.add(ENGLISH_SMALL_LETTERS[14]);
+        word16.add(ENGLISH_SMALL_LETTERS[17]);
+        word16.add(HYPHEN);
+        word16.add(ENGLISH_SMALL_LETTERS[11]);
+        word16.add(ENGLISH_SMALL_LETTERS[4]);
+        word16.add(ENGLISH_SMALL_LETTERS[18]);
+        word16.add(ENGLISH_SMALL_LETTERS[18]);
+        data[16] = new Object[]{word16, "more-or-less"};
+        TextComponent word17 = new TextComposite(ComponentType.WORD);
+        word17.add(RUSSIAN_BIG_LETTERS[11]);
+        word17.add(RUSSIAN_SMALL_LETTERS[15]);
+        word17.add(RUSSIAN_SMALL_LETTERS[14]);
+        word17.add(RUSSIAN_SMALL_LETTERS[5]);
+        word17.add(RUSSIAN_SMALL_LETTERS[23]);
+        data[17] = new Object[]{word17, "Конец"};
         return data;
     }
 
+    @DataProvider(name="numbers-data")
+    public static Object[][] createNumbersData(){
+        Object[][] data = new Object[3][];
+        TextComponent number1=new TextComposite(ComponentType.NUMBER);
 
+        number2.add(DIGITS[9]);
+        data[1]=new Object[]{number2,"109"};
+        TextComponent number2=new TextComposite(ComponentType.NUMBER);
+        number2.add(DIGITS[1]);
+        number2.add(DIGITS[0]);
+        number2.add(DIGITS[9]);
+        data[1]=new Object[]{number2,"109"};
+    }
+
+    @DataProvider(name = "lexemes-data")
+    public static Object[][] createLexemesData() {
+        Object[][] data = new Object[18][];
+        Object[][] wordsData = createWordsData();
+        TextComponent lexeme0 = new TextComposite(ComponentType.LEXEME);
+        lexeme0.add((TextComponent) wordsData[0][0]);
+        data[0] = new Object[]{lexeme0, "Every"};
+        TextComponent lexeme1 = new TextComposite(ComponentType.LEXEME);
+        lexeme1.add((TextComponent) wordsData[1][0]);
+        lexeme1.add(COMMA);
+        data[1] = new Object[]{lexeme1, "day,"};
+        TextComponent lexeme2 = new TextComposite(ComponentType.LEXEME);
+        lexeme2.add((TextComponent) wordsData[2][0]);
+        data[2] = new Object[]{lexeme2, "in"};
+        TextComponent lexeme3 = new TextComposite(ComponentType.LEXEME);
+        lexeme3.add((TextComponent) wordsData[3][0]);
+        data[3] = new Object[]{lexeme3, "school"};
+        TextComponent lexeme4 = new TextComposite(ComponentType.LEXEME);
+        lexeme4.add(QUOTE);
+        lexeme4.add((TextComponent) wordsData[4][0]);
+        lexeme4.add(QUOTE);
+        data[4] = new Object[]{lexeme4, "\"Begins\""};
+        TextComponent lexeme5 = new TextComposite(ComponentType.LEXEME);
+        lexeme5.add((TextComponent) wordsData[5][0]);
+        data[5] = new Object[]{lexeme5, "at"};
+        TextComponent lexeme6 = new TextComposite(ComponentType.LEXEME);
+        lexeme6.add();
+        data[6]=new Object[]{}
+        // fixme number
+        TextComponent lexeme6 = new TextComposite(ComponentType.LEXEME);
+        lexeme6.add(OPEN_ANGLE_QUOTE);
+        lexeme6.add((TextComponent) wordsData[6][0]);
+        lexeme6.add(CLOSE_ANGLE_QUOTE);
+        lexeme6.add(COMMA);
+        data[6] = new Object[]{lexeme6, "«Many»,"};
+        TextComponent lexeme7 = new TextComposite(ComponentType.LEXEME);
+        lexeme7.add((TextComponent) wordsData[7][0]);
+        data[7] = new Object[]{lexeme7, "but"};
+        TextComponent lexeme8 = new TextComposite(ComponentType.LEXEME);
+        lexeme8.add((TextComponent) wordsData[8][0]);
+        data[8] = new Object[]{lexeme8, "isn't"};
+        TextComponent lexeme9 = new TextComposite(ComponentType.LEXEME);
+        lexeme9.add((TextComponent) wordsData[9][0]);
+        data[9] = new Object[]{lexeme9, "Cold"};
+        TextComponent lexeme10 = new TextComposite(ComponentType.LEXEME);
+        lexeme10.add((TextComponent) wordsData[10][0]);
+        data[10] = new Object[]{lexeme10, "дождь"};
+        TextComponent lexeme11 = new TextComposite(ComponentType.LEXEME);
+        lexeme11.add((TextComponent) wordsData[11][0]);
+        data[11] = new Object[]{lexeme11, "идёт"};
+        TextComponent lexeme12 = new TextComposite(ComponentType.LEXEME);
+        lexeme12.add((TextComponent) wordsData[12][0]);
+        data[12] = new Object[]{lexeme12, "Луч"};
+        TextComponent lexeme13 = new TextComposite(ComponentType.LEXEME);
+        lexeme13.add((TextComponent) wordsData[13][0]);
+        data[13] = new Object[]{lexeme13, "ок"};
+        TextComponent lexeme14 = new TextComposite(ComponentType.LEXEME);
+        lexeme14.add((TextComponent) wordsData[14][0]);
+        data[14] = new Object[]{lexeme14, "Яр_ко"};
+        TextComponent lexeme15 = new TextComposite(ComponentType.LEXEME);
+        lexeme15.add((TextComponent) wordsData[15][0]);
+        data[15] = new Object[]{lexeme15, "стоп"};
+        TextComponent lexeme16 = new TextComposite(ComponentType.LEXEME);
+        lexeme16.add((TextComponent) wordsData[16][0]);
+        data[16] = new Object[]{lexeme16, "more-or-less"};
+        TextComponent lexeme17 = new TextComposite(ComponentType.LEXEME);
+        lexeme17.add((TextComponent) wordsData[17][0]);
+        data[17] = new Object[]{lexeme17, "Конец"};
+        return data;
+    }
 }
