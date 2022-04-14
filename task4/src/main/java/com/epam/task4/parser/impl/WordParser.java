@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 public class WordParser implements TextComponentParser {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final char HYPHEN = '-';
-    private static final char UNDERSCORE_CHAR = '_';
+    private static final char UNDERSCORE = '_';
     private static final char APOSTROPHE = '\'';
 
     @Override
@@ -32,7 +32,7 @@ public class WordParser implements TextComponentParser {
         SymbolType type;
         if (Character.isAlphabetic(ch)) {
             type = SymbolType.LETTER;
-        } else if (HYPHEN == ch || APOSTROPHE == ch || UNDERSCORE_CHAR == ch) {
+        } else if (HYPHEN == ch || APOSTROPHE == ch || UNDERSCORE == ch) {
             type = SymbolType.SPELLING_MARK;
         } else {
             LOGGER.error("Unknown symbol \'"+ch+"\'");
