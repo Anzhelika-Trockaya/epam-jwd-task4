@@ -15,13 +15,13 @@ public class TextChangeServiceImplTest {
     @Test
     public void testSortParagraphsBySentencesNumber() throws TextParseException {
         TextFromFileReaderParser textFromFileReaderParser = TextFromFileReaderParser.getInstance();
-        TextComponent actualText=null;
-        TextComponent expectedText=null;
+        TextComponent actualText = null;
+        TextComponent expectedText = null;
         try {
             actualText = textFromFileReaderParser.readAndParse(TEXT_FILE_NAME);
             expectedText = textFromFileReaderParser.readAndParse(TEXT_WITH_SORTED_PARAGRAPHS_FILE_NAME);
-        } catch(TextParseException exception){
-            Assert.fail("Exception when parsed from file! "+exception);
+        } catch (TextParseException exception) {
+            Assert.fail("Exception when parsed from file! " + exception);
         }
         TextChangeService changeService = new TextChangeServiceImpl();
         changeService.sortParagraphsBySentencesNumber(actualText);
@@ -32,13 +32,13 @@ public class TextChangeServiceImplTest {
     public void testRemoveSentencesWithWordsQuantityLessThanNumber() throws TextParseException {
         int wordsNumber = 8;
         TextFromFileReaderParser textFromFileReaderParser = TextFromFileReaderParser.getInstance();
-        TextComponent actualText=null;
-        TextComponent expectedText=null;
+        TextComponent actualText = null;
+        TextComponent expectedText = null;
         try {
             actualText = textFromFileReaderParser.readAndParse(TEXT_FILE_NAME);
             expectedText = textFromFileReaderParser.readAndParse(TEXT_REMOVE_RESULT_FILE_NAME);
-        } catch(TextParseException exception){
-            Assert.fail("Exception when parsed from file! "+exception);
+        } catch (TextParseException exception) {
+            Assert.fail("Exception when parsed from file! " + exception);
         }
         TextChangeService changeService = new TextChangeServiceImpl();
         changeService.removeSentencesWithWordsQuantityLessThanNumber(actualText, wordsNumber);

@@ -429,7 +429,7 @@ public class StaticParserDataProvider {
                 append("\\n\\tIt is a -?\\d+\\.\\d+ established fact that a reader will be of a page when looking ").
                 append("at its layout\\.\\n\\tBye\\.");
         Object[][] data = new Object[1][];
-        data[0]=new Object[]{textBuilder.toString(), regexBuilder.toString()};
+        data[0] = new Object[]{textBuilder.toString(), regexBuilder.toString()};
         return data;
     }
 }

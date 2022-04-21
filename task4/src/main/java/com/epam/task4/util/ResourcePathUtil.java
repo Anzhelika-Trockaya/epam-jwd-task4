@@ -8,6 +8,7 @@ import java.net.URL;
 
 public class ResourcePathUtil {
     private static final Logger LOGGER = LogManager.getLogger();
+
     public static String getResourcePath(String resourceName) throws TextParseException {
         final int pathStartPosition = 6;
         ClassLoader loader = ResourcePathUtil.class.getClassLoader();

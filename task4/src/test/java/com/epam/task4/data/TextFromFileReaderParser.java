@@ -10,11 +10,13 @@ import com.epam.task4.util.ResourcePathUtil;
 
 public class TextFromFileReaderParser {
     private static TextFromFileReaderParser instance;
-    private TextFromFileReaderParser(){}
+
+    private TextFromFileReaderParser() {
+    }
 
     public static TextFromFileReaderParser getInstance() {
-        if(instance==null){
-            instance=new TextFromFileReaderParser();
+        if (instance == null) {
+            instance = new TextFromFileReaderParser();
         }
         return instance;
     }

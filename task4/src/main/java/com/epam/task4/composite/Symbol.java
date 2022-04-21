@@ -33,7 +33,7 @@ public class Symbol implements TextComponent {
         throw new UnsupportedOperationException("GetComponents operation is not supported for Symbol");
     }
 
-    public char getValue(){
+    public char getValue() {
         return value;
     }
 

@@ -33,7 +33,7 @@ public class PolishNotationParser {
                     }
                 }
         );
-        LOGGER.info("Expression parsed successfully. Polish notation: '"+polishNotation+"', result="+expression);
+        LOGGER.info("Expression parsed successfully. Polish notation: '" + polishNotation + "', result=" + expression);
         return expression;
     }
 }
