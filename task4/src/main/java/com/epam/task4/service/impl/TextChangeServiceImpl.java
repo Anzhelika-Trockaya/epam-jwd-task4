@@ -27,8 +27,8 @@ public class TextChangeServiceImpl implements TextChangeService {
         int size2;
         TextComponent temp;
         for (int i = 0; i < paragraphs.size() - 1; i++) {
-            size1 = paragraphs.get(i).getChildren().size();
-            for (int j = i; j < paragraphs.size(); j++) {
+            for (int j = i + 1; j < paragraphs.size(); j++) {
+                size1 = paragraphs.get(i).getChildren().size();
                 size2 = paragraphs.get(j).getChildren().size();
                 if (size1 > size2) {
                     temp = paragraphs.get(i);
@@ -51,15 +51,29 @@ public class TextChangeServiceImpl implements TextChangeService {
             LOGGER.info("Text is empty. " + text);
             return;
         }
+        TextComponent currentParagraph;
+        for (int i = 0; i < paragraphs.size(); i++) {
+            currentParagraph = paragraphs.get(i);
+            removeSentencesFromParagraphWithWordsQuantityLessThanNumber(currentParagraph, number);
+            if (currentParagraph.getChildren().size() == 0) {
+                text.remove(currentParagraph);
+                LOGGER.info("Removed paragraph: '" + currentParagraph.getAsString() + "'. ");
+                i--;
+            }
+        }
+    }
+
+    private void removeSentencesFromParagraphWithWordsQuantityLessThanNumber(TextComponent paragraph, int number) {
+        List<TextComponent> sentences = paragraph.getChildren();
         int currentWordsQuantity;
-        for (TextComponent paragraph : paragraphs) {
-            List<TextComponent> sentences = paragraph.getChildren();
-            for (TextComponent sentence : sentences) {
-                currentWordsQuantity = countNumberOfWordsInSentence(sentence);
-                if (currentWordsQuantity < number) {
-                    paragraph.remove(sentence);
-                    LOGGER.info("Removed sentence: '" + sentence.getAsString() + "'");
-                }
+        TextComponent currentSentence;
+        for (int i = 0; i < sentences.size(); i++) {
+            currentSentence = sentences.get(i);
+            currentWordsQuantity = countNumberOfWordsInSentence(currentSentence);
+            if (currentWordsQuantity < number) {
+                paragraph.remove(currentSentence);
+                LOGGER.info("Removed sentence: '" + currentSentence.getAsString() + "'");
+                i--;
             }
         }
     }

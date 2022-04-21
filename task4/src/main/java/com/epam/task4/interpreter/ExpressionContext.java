@@ -3,7 +3,7 @@ package com.epam.task4.interpreter;
 import java.util.ArrayDeque;
 
 public class ExpressionContext {
-    private ArrayDeque<Double> contextValue = new ArrayDeque<>();
+    private final ArrayDeque<Double> contextValue = new ArrayDeque<>();
     public Double pop(){
         return contextValue.pop();
     }

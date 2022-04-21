@@ -1,16 +1,11 @@
 package com.epam.task4.composite;
 
-import com.epam.task4.exception.TextParseException;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class TextComposite implements TextComponent {
-    private static final Logger LOGGER = LogManager.getLogger();
     private final ComponentType type;
-    private List<TextComponent> components;
+    private final List<TextComponent> components;
 
     public TextComposite(ComponentType type) {
         this.type = type;

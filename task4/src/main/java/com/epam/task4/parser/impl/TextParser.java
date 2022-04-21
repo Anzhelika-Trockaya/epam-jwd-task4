@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 public class TextParser implements TextComponentParser {
     private static final Logger LOGGER = LogManager.getLogger();
-    private static final String PARAGRAPHS_DELIMITER_REGEX = "\\n\\t|\\s{4}";
+    private static final String PARAGRAPHS_DELIMITER_REGEX = "\\n(\\t|\\s{4})";
     private final TextComponentParser paragraphParser = new ParagraphParser();
 
     @Override

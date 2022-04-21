@@ -28,7 +28,7 @@ public class MathExpressionConverter {
         String curr;
         while (tokenizer.hasMoreTokens()) {
             curr = tokenizer.nextToken();
-            if (!tokenizer.hasMoreTokens() && isOperator(curr)) {//todo if ( is last symbol
+            if (!tokenizer.hasMoreTokens() && isOperator(curr)) {
                 LOGGER.error("Incorrect expression: '" + expressionString + "'");
                 throw new TextParseException("Incorrect expression: '" + expressionString + "'");
             }

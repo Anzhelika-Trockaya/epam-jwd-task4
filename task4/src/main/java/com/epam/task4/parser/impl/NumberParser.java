@@ -24,7 +24,7 @@ public class NumberParser implements TextComponentParser {
         for (; i < sourceChars.length; i++) {
             if (Character.isDigit(sourceChars[i])) {
                 currentSymbolType = SymbolType.DIGIT;
-            } else if ('.' == sourceChars[i]) {
+            } else if ('.' == sourceChars[i] || ',' == sourceChars[i]) {
                 currentSymbolType = SymbolType.FRACTIONAL_COMMA;
             } else {
                 LOGGER.error("Unknown symbol '" + sourceChars[i] + "'");
@@ -32,9 +32,7 @@ public class NumberParser implements TextComponentParser {
             }
             currentSymbol = new Symbol(currentSymbolType, sourceChars[i]);
             number.add(currentSymbol);
-            LOGGER.debug(currentSymbol + " added to number " + number);
         }
-        LOGGER.info("Number parsed. " + number);
         return number;
     }
 }

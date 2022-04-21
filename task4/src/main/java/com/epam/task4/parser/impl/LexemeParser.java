@@ -16,10 +16,10 @@ import java.util.regex.Pattern;
 
 public class LexemeParser implements TextComponentParser {
     private static final Logger LOGGER = LogManager.getLogger();
-    private static final String PUNCTUATION_REGEX = "[«»\"(){}'—.,;:!?…]";
-    private static final String LEXEME_WITH_NUMBER_REGEX = "([«\"{']+)?(-?\\d+(\\.\\d+)?)([»\"}'.,;:!?…]+)?";
+    private static final String PUNCTUATION_REGEX = "[-«»\"(){}—.,;:!?…]";
+    private static final String LEXEME_WITH_NUMBER_REGEX = "([«\"{]+)?(-?\\d+([.,]\\d+)?)([»\"}.,;:!?…]+)?";
     private static final String LEXEME_WITH_MATH_EXPRESSION_REGEX = "([«\"{']+)?([(-]*\\d+[-+*/)]+[\\d-+*/()]*)([»\"}'.,;:!?…]+)?";
-    private static final String LEXEME_WITH_WORD_REGEX = "([«\"({']*)?([\\p{Alpha}а-яА-яЁё]+([-_][\\p{Alpha}а-яА-яЁё]+)*('[\\p{Alpha}а-яА-яЁё]*)?)([»\")}'.,;:!?…]*)";
+    private static final String LEXEME_WITH_WORD_REGEX = "([«\"({]*)?([\\p{Alpha}а-яА-яЁё]+([-_][\\p{Alpha}а-яА-яЁё]+)*(['’][\\p{Alpha}а-яА-яЁё]*)?)([»\")}.,;:!?…]*)";
     private TextComponent lexeme;
     private TextComponentParser parser;
 
@@ -35,10 +35,9 @@ public class LexemeParser implements TextComponentParser {
         } else if (source.matches(PUNCTUATION_REGEX)) {
             addPunctuation(source);
         } else {
-            LOGGER.error("Incorrect lexeme: \'" + source + "\'");
-            throw new TextParseException("Incorrect lexeme: \'" + source + "\'");
+            LOGGER.error("Incorrect lexeme: '" + source + "'");
+            throw new TextParseException("Incorrect lexeme: '" + source + "'");
         }
-        LOGGER.info("Lexeme parsed: " + lexeme);
         return lexeme;
     }
 
@@ -102,14 +101,12 @@ public class LexemeParser implements TextComponentParser {
     private void addNumber(String numberString) throws TextParseException {
         parser = new NumberParser();
         TextComponent number = parser.parse(numberString);
-        LOGGER.debug("Number " + number + " added to lexeme " + lexeme);
         lexeme.add(number);
     }
 
     private void addWord(String wordString) throws TextParseException {
         parser = new WordParser();
         TextComponent word = parser.parse(wordString);
-        LOGGER.debug("Word " + word + " added to lexeme " + lexeme);
         lexeme.add(word);
     }
 
@@ -118,7 +115,6 @@ public class LexemeParser implements TextComponentParser {
         for (int i = 0; i < punctuationString.length(); i++) {
             punctuation = new Symbol(SymbolType.PUNCTUATION, punctuationString.charAt(i));
             lexeme.add(punctuation);
-            LOGGER.debug("Punctuation " + punctuation + " added to lexeme " + lexeme);
         }
     }
 }

@@ -1,7 +1,5 @@
 package com.epam.task4.composite;
 
-import com.epam.task4.exception.TextParseException;
-
 import java.util.List;
 
 public interface TextComponent {

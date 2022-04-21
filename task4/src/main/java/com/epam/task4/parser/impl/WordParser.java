@@ -11,6 +11,7 @@ public class WordParser implements TextComponentParser {
     private static final char HYPHEN = '-';
     private static final char UNDERSCORE = '_';
     private static final char APOSTROPHE = '\'';
+    private static final char APOSTROPHE_2 = '’';
 
     @Override
     public TextComponent parse(String source) throws TextParseException {
@@ -22,9 +23,7 @@ public class WordParser implements TextComponentParser {
             currentSymbolType = defineSymbolType(wordChar);
             currentSymbol = new Symbol(currentSymbolType, wordChar);
             word.add(currentSymbol);
-            LOGGER.debug(currentSymbol + " added to word " + word);
         }
-        LOGGER.info("Word parsed. " + word);
         return word;
     }
 
@@ -32,11 +31,11 @@ public class WordParser implements TextComponentParser {
         SymbolType type;
         if (Character.isAlphabetic(ch)) {
             type = SymbolType.LETTER;
-        } else if (HYPHEN == ch || APOSTROPHE == ch || UNDERSCORE == ch) {
+        } else if (HYPHEN == ch || APOSTROPHE == ch || UNDERSCORE == ch || APOSTROPHE_2 == ch) {
             type = SymbolType.SPELLING_MARK;
         } else {
-            LOGGER.error("Unknown symbol \'"+ch+"\'");
-            throw new TextParseException("Unknown symbol \'"+ch+"\'");
+            LOGGER.error("Unknown symbol '" + ch + "'");
+            throw new TextParseException("Unknown symbol '" + ch + "'");
         }
         return type;
     }

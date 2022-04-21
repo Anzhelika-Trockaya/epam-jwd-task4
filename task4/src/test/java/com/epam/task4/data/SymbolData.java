@@ -10,7 +10,8 @@ public class SymbolData {
     public static final Symbol[] RUSSIAN_BIG_LETTERS = new Symbol[33];
     public static final Symbol[] DIGITS = new Symbol[10];
     public static final Symbol MINUS = new Symbol(SymbolType.MINUS, '-');
-    public static final Symbol FRACTIONAL_COMMA = new Symbol(SymbolType.FRACTIONAL_COMMA, '.');
+    public static final Symbol FRACTIONAL_POINT = new Symbol(SymbolType.FRACTIONAL_COMMA, '.');
+    public static final Symbol FRACTIONAL_COMMA = new Symbol(SymbolType.FRACTIONAL_COMMA, ',');
     public static final Symbol HYPHEN = new Symbol(SymbolType.SPELLING_MARK, '-');
     public static final Symbol UNDERSCORE = new Symbol(SymbolType.SPELLING_MARK, '_');
     public static final Symbol APOSTROPHE = new Symbol(SymbolType.SPELLING_MARK, '\'');
@@ -25,13 +26,10 @@ public class SymbolData {
     public static final Symbol OPEN_ANGLE_QUOTE = new Symbol(SymbolType.PUNCTUATION, '«');
     public static final Symbol CLOSE_ANGLE_QUOTE = new Symbol(SymbolType.PUNCTUATION, '»');
     public static final Symbol QUOTE = new Symbol(SymbolType.PUNCTUATION, '"');
-    public static final Symbol SINGLE_QUOTE = new Symbol(SymbolType.PUNCTUATION, '\'');
     public static final Symbol OPEN_PARENTHESIS = new Symbol(SymbolType.PUNCTUATION, '(');
     public static final Symbol CLOSE_PARENTHESIS = new Symbol(SymbolType.PUNCTUATION, ')');
     public static final Symbol OPEN_CURLY_BRACKET = new Symbol(SymbolType.PUNCTUATION, '{');
     public static final Symbol CLOSE_CURLY_BRACKET = new Symbol(SymbolType.PUNCTUATION, '}');
-    public static final Symbol OPEN_SQUARE_BRACKET = new Symbol(SymbolType.PUNCTUATION, '[');
-    public static final Symbol CLOSE_SQUARE_BRACKET = new Symbol(SymbolType.PUNCTUATION, ']');
 
     static {
         ENGLISH_SMALL_LETTERS[0] = new Symbol(SymbolType.LETTER, 'a');

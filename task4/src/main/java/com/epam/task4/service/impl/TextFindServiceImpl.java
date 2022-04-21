@@ -40,7 +40,11 @@ public class TextFindServiceImpl implements TextFindService {
                 }
             }
         }
-        LOGGER.info("Sentence with longest word: '" + sentenceResult.getAsString() + "'");
+        if (sentenceResult != null) {
+            LOGGER.info("Sentence with longest word: '" + sentenceResult.getAsString() + "'");
+        } else {
+            LOGGER.warn("Sentence with longest word not found. Result is null.");
+        }
         return sentenceResult;
     }
 
@@ -53,10 +57,6 @@ public class TextFindServiceImpl implements TextFindService {
             throw new TextParseException("TextComponent must be TEXT! " + text);
         }
         List<TextComponent> paragraphs = text.getChildren();
-        if (paragraphs.size() == 0) {
-            LOGGER.error("Text has no sentences! " + text);
-            throw new TextParseException("Text has no sentences! " + text);
-        }
         for (TextComponent paragraph : paragraphs) {
             List<TextComponent> sentences = paragraph.getChildren();
             for (TextComponent sentence : sentences) {
@@ -66,12 +66,10 @@ public class TextFindServiceImpl implements TextFindService {
                     for (TextComponent lexemePart : lexemeParts) {
                         if (ComponentType.WORD == lexemePart.getComponentType()) {
                             if (words.contains(lexemePart)) {
-                                if (repeatingWords.contains(lexemePart)) {
-                                    repeatingWords.add(lexemePart);
-                                } else {
-                                    repeatingWords.add(lexemePart);
+                                if (!repeatingWords.contains(lexemePart)) {
                                     repeatingWords.add(lexemePart);
                                 }
+                                repeatingWords.add(lexemePart);
                             } else {
                                 words.add(lexemePart);
                             }
@@ -98,10 +96,6 @@ public class TextFindServiceImpl implements TextFindService {
             throw new TextParseException("TextComponent must be TEXT! " + text);
         }
         List<TextComponent> paragraphs = text.getChildren();
-        if (paragraphs.size() == 0) {
-            LOGGER.error("Text has no sentences! " + text);
-            throw new TextParseException("Text has no sentences! " + text);
-        }
         int currentNumber;
         int result = 0;
         for (TextComponent paragraph : paragraphs) {
@@ -130,10 +124,6 @@ public class TextFindServiceImpl implements TextFindService {
             throw new TextParseException("TextComponent must be TEXT! " + text);
         }
         List<TextComponent> paragraphs = text.getChildren();
-        if (paragraphs.size() == 0) {
-            LOGGER.error("Text has no sentences! " + text);
-            throw new TextParseException("Text has no sentences! " + text);
-        }
         int currentNumber;
         int result = 0;
         for (TextComponent paragraph : paragraphs) {
@@ -190,8 +180,9 @@ public class TextFindServiceImpl implements TextFindService {
 
     private boolean isVowel(char letter) {
         char[] vowels = {'a', 'e', 'u', 'i', 'o', 'y', 'а', 'я', 'е', 'э', 'у', 'ю', 'и', 'ы', 'о', 'ё'};
+        char letterInLowerCase = Character.toLowerCase(letter);
         for (char vowel : vowels) {
-            if (letter == vowel) {
+            if (letterInLowerCase == vowel) {
                 return true;
             }
         }
